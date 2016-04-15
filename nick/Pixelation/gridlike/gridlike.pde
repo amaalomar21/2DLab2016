@@ -2,7 +2,7 @@
 ICell mainGrid;
 
 void setup() {
-    size(1024, 1024);
+    size(1024, 512);
     // mainGrid = new Grid(new ICell[] {
     //     new ImageCell("clouds.jpg"),
     //     new ImageCell("crate200.jpg"),
@@ -13,10 +13,12 @@ void setup() {
     //     new ImageCell("FieldScreenSnapz014.jpg")
     // });
 
-    mainGrid = new ImageCell("clouds.jpg");
+    //mainGrid = new ImageCell("clouds.jpg");
+    mainGrid = new PlainColourCell(300, 200, color(255, 0, 0));
 }
 
 void draw() {
     clear();
-    mainGrid.drawItem(0, 0);
+    mainGrid.drawItem(width / 2 - mainGrid.getWidth() / 2,
+                      height / 2 - mainGrid.getHeight() / 2);
 }
