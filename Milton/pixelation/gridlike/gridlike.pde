@@ -1,5 +1,6 @@
 //import ImageGrid;
 ICell mainGrid;
+ICell noiseGrid;
 
 void setup() {
     size(1024, 1024);
@@ -14,9 +15,11 @@ void setup() {
     // });
 
     mainGrid = new PlainColourCell(300, 200, color(255, 255, 0));
+    noiseGrid = new NoiseCell(300, 200, true);
 }
 
 void draw() {
     clear();
-    mainGrid.drawItem(0, 0);
+    noiseGrid.drawItem(  width / 2 - mainGrid.getWidth() / 2,
+                        height / 2 - mainGrid.getHeight() / 2);
 }
