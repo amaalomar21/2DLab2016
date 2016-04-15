@@ -1,7 +1,8 @@
 //import ImageGrid;
-ICell mainGrid;
-ICell mainGrid1;
-ICell mainGrid2;
+//ICell mainGrid;
+//ICell mainGrid1;
+//ICell mainGrid2;
+ICell mainGrid3;
 void setup() {
     size(1024, 1024);
     // mainGrid = new Grid(new ICell[] {
@@ -16,15 +17,17 @@ void setup() {
 
 
     //mainGrid = new ImageCell("clouds.jpg");
-    mainGrid = new PlainColourCell (300, 200, color (255, 0 ,0));
-    mainGrid1 = new PlainColourCell (300, 200, color (255, 78 ,67));
-    mainGrid2 = new PlainColourCell (300, 200, color (255, 178 ,167));
+    //mainGrid = new PlainColourCell (300, 200, color (255, 0 ,0));
+   // mainGrid1 = new PlainColourCell (300, 200, color (255, 78 ,67));
+    //mainGrid2 = new PlainColourCell (300, 200, color (255, 178 ,167));
+    mainGrid3 = new NoiseCell (300, 200);
 }
 
 
 void draw() {
     clear();
-    mainGrid.drawItem(0, 0);
-    mainGrid1.drawItem(200, 200);
-    mainGrid2.drawItem(400, 400);
+    //mainGrid.drawItem(0, 0);
+   // mainGrid1.drawItem(200, 200);
+ //   mainGrid2.drawItem(400, 400);
+    mainGrid3.drawItem(400, 400);
 }
