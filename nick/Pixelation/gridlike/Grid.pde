@@ -11,9 +11,11 @@ class Grid implements ICell {
     }
 
     int getHeight() {
+        return 0;
     }
 
     int getWidth() {
+        return 0;
     }
 
     void drawItem(int posX, int posY) {
