@@ -1,11 +1,13 @@
 class PlainColourCell implements ICell {
     int itsW, itsH;
-    
-    PlainColourCell(int w, int h) {
+    color itsC;
+
+    PlainColourCell(int w, int h, color c) {
         itsW = w;
         itsH = h;
+        itsC = c;
     }
-    
+
     int getHeight() {
         return itsH;
     }
@@ -13,7 +15,10 @@ class PlainColourCell implements ICell {
     int getWidth() {
         return itsW;
     }
-    
+
     void drawItem(int posX, int posY) {
+        fill(itsC);
+        noStroke();
+        rect(posX, posY, itsW, itsH);
     }
 }
