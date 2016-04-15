@@ -13,7 +13,8 @@ void setup() {
     //     new ImageCell("FieldScreenSnapz014.jpg")
     // });
 
-    mainGrid = new ImageCell("clouds.jpg");
+    //mainGrid = new ImageCell("clouds.jpg");
+    mainGrid = new PlainColourCell(300, 200);
 }
 
 void draw() {
