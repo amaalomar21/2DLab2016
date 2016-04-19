@@ -1,10 +1,8 @@
 //import ImageGrid;
-//ICell mainGrid;
-//ICell mainGrid1;
-//ICell mainGrid2;
-ICell mainGrid3;
+ICell mainGrid;
+
 void setup() {
-    size(1024, 1024);
+    size(1024, 512);
     // mainGrid = new Grid(new ICell[] {
     //     new ImageCell("clouds.jpg"),
     //     new ImageCell("crate200.jpg"),
@@ -15,19 +13,12 @@ void setup() {
     //     new ImageCell("FieldScreenSnapz014.jpg")
     // });
 
-
     //mainGrid = new ImageCell("clouds.jpg");
-    //mainGrid = new PlainColourCell (300, 200, color (255, 0 ,0));
-   // mainGrid1 = new PlainColourCell (300, 200, color (255, 78 ,67));
-    //mainGrid2 = new PlainColourCell (300, 200, color (255, 178 ,167));
-    mainGrid3 = new NoiseCell (500, 500);
+    mainGrid = new PlainColourCell(300, 200, color(255, 0, 0));
 }
-
 
 void draw() {
     clear();
-    //mainGrid.drawItem(0, 0);
-   // mainGrid1.drawItem(200, 200);
- //   mainGrid2.drawItem(400, 400);
-    mainGrid3.drawItem(40, 100);
+    mainGrid.drawItem(width / 2 - mainGrid.getWidth() / 2,
+                      height / 2 - mainGrid.getHeight() / 2);
 }

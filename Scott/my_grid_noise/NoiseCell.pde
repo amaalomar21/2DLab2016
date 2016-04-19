@@ -17,8 +17,8 @@ class NoiseCell implements ICell {
       
       loadPixels();
 
-    for (int y = 0; y < itsH; y++) {
-        for (int x = 0; x < itsW; x++) {
+    for ( int y = posY; y < itsH + posY; y++) {
+        for (int x = posX; x < itsW + posX; x++) {
             pixels[y * width + x] = color(random(255), random(255), random(255));
         }
     }
