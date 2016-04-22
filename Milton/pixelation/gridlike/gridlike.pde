@@ -1,6 +1,7 @@
 //import ImageGrid;
-ICell mainGrid;
-ICell noiseGrid;
+// ICell mainGrid;
+// ICell noiseGrid;
+ICell fourByFour;
 
 void setup() {
     size(1024, 1024);
@@ -14,12 +15,15 @@ void setup() {
     //     new ImageCell("FieldScreenSnapz014.jpg")
     // });
 
-    mainGrid = new PlainColourCell(300, 200, color(255, 255, 0));
-    noiseGrid = new NoiseCell(300, 200, true);
+    // mainGrid = new PlainColourCell(300, 200, color(255, 255, 0));
+    // noiseGrid = new NoiseCell(300, 200, true);
+    fourByFour = new UpByDown( new SideBySide(new NoiseCell(200, 200, false), new NoiseCell(200, 200, true)),
+                               new SideBySide(new NoiseCell(200, 200, true), new NoiseCell(200, 200, false))
+                             );
 }
 
 void draw() {
     clear();
-    noiseGrid.drawItem(  width / 2 - mainGrid.getWidth() / 2,
-                        height / 2 - mainGrid.getHeight() / 2);
+    fourByFour.drawItem(  width / 2 - fourByFour.getWidth() / 2,
+                        height / 2 - fourByFour.getHeight() / 2);
 }

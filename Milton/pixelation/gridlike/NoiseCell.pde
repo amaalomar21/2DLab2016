@@ -26,7 +26,7 @@ class NoiseCell implements ICell {
                                         pixels[y * width + x] = color(r);
                                 }
                                 else{
-                                        pixels[y * width + x] = color(r,r, 0);
+                                        pixels[y * width + x] = color(random(255),random(255), random(255));
                                 }
 
                         }
