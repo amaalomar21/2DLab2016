@@ -16,9 +16,8 @@ void setup() {
     // mainGrid = new ImageCell("clouds.jpg");
     // mainGrid = new PlainColourCell(300, 200, color(255, 0, 0));
     // mainGrid = new NoiseCell(200, 100);
-    mainGrid = new SideBySide(//new ImageCell("clouds.jpg"),
-                    new PlainColourCell(300, 300, color(0, 255, 0)),
-                    new SideBySide(new NoiseCell(100, 100),
+    mainGrid = new SideBySide(
+                    new SideBySide(new ImageCell("clouds.jpg"),
                                    new ImageCell("clouds.jpg")
                                   )
                 );
