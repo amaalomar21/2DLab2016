@@ -38,7 +38,6 @@ class DrawableObject implements IDrawableObject {
 class PicDrawableObject implements IDrawableObject {
     PImage img;
     float x, y;
-    float w=10, h=10; //arbitrary values so we see something when this is drawn
 
     PicDrawableObject(PImage myImage) {
         img = myImage;
@@ -55,8 +54,7 @@ class PicDrawableObject implements IDrawableObject {
     }
 
     public void setSize(float ww, float hh) {
-        w = ww;
-        h = hh;
+        img.resize((int) ww, (int) hh);
     }
 }
 
@@ -88,6 +86,8 @@ void setup()
   }
 
   setupGridPositions(gridObjects, COLS);
+
+  noStroke();
 }
 
 
@@ -100,7 +100,8 @@ color f = 0;
 
 void draw()
 {
-  if (frameCount % 60 == 0) f = color(random(255), random(255), random(255));
+  // if (frameCount % 60 == 0) f = color(random(255), random(255), random(255));
+  f = color(0x80);
 
   // draw our cells
   for (int cell=0; cell < gridObjects.length; cell++)
@@ -148,8 +149,12 @@ void setupGridPositions( IDrawableObject[] gridObjects, final int columns )
 
     // create new cell object and put in array
     IDrawableObject cellObject;
-    if (cell == 9) {
-        cellObject = new PicDrawableObject(images[0]);
+    // if (cell % 2 == 0) {
+    //     cellObject = new PicDrawableObject(images[cell / 2]);
+    //
+    // }
+    if (cell < 8) {
+        cellObject = new PicDrawableObject(images[cell]);
     } else {
         cellObject = new DrawableObject();
     }
