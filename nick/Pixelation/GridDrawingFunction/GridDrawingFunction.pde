@@ -6,16 +6,58 @@
 //
 //  Basic something to draw, by default a rectangle
 //
-class DrawableObject {
+
+interface IDrawableObject {
+    public void draw();
+    public void setPosition(float xx, float yy);
+    public void setSize(float ww, float hh);
+}
+
+class DrawableObject implements IDrawableObject {
 
   float x, y;
   float w=10, h=10; //arbitrary values so we see something when this is drawn
+
+  public void setPosition(float xx, float yy) {
+      x = xx;
+      y = yy;
+  }
+
+  public void setSize(float ww, float hh) {
+      w = ww;
+      h = hh;
+  }
 
   public void draw()
   {
     rectMode(CORNER);
     rect(x, y, w, h);
   }
+}
+
+class PicDrawableObject implements IDrawableObject {
+    PImage img;
+    float x, y;
+    float w=10, h=10; //arbitrary values so we see something when this is drawn
+
+    PicDrawableObject(PImage myImage) {
+        img = myImage;
+        // println(img);
+    }
+
+    public void draw() {
+        image(img, x, y);
+    }
+
+    public void setPosition(float xx, float yy) {
+        x = xx;
+        y = yy;
+    }
+
+    public void setSize(float ww, float hh) {
+        w = ww;
+        h = hh;
+    }
 }
 
 
@@ -29,14 +71,21 @@ int COLS = 4;
 
 
 // list of objects in our grid to draw
-DrawableObject[] gridObjects = new DrawableObject[OBJECTS_TO_DRAW];
+IDrawableObject[] gridObjects = new IDrawableObject[OBJECTS_TO_DRAW];
 
 //
 // SETUP ----------------------------------------------------------
 //
+
+PImage images[] = new PImage[8];
 void setup()
 {
   size(512, 256);
+
+  for (int i = 0; i < 8; i++) {
+      String filename = "contemp" + i + ".jpg";
+      images[i] = loadImage(filename);
+  }
 
   setupGridPositions(gridObjects, COLS);
 }
@@ -76,7 +125,7 @@ void draw()
 //----------------------------------------------------------------------
 // update an array of grid cells based on the number of columns provided
 //
-void setupGridPositions( DrawableObject[] gridObjects, final int columns )
+void setupGridPositions( IDrawableObject[] gridObjects, final int columns )
 {
   int COL_WIDTH = width/columns; // setup width of columns
   final int NUM_ROWS = gridObjects.length/columns;
@@ -98,32 +147,21 @@ void setupGridPositions( DrawableObject[] gridObjects, final int columns )
     //println(", row=" + row);
 
     // create new cell object and put in array
-    DrawableObject cellObject = new DrawableObject();
+    IDrawableObject cellObject;
+    if (cell == 9) {
+        cellObject = new PicDrawableObject(images[0]);
+    } else {
+        cellObject = new DrawableObject();
+    }
     // set the cell's position based on row/col
-    cellObject.x = COL_WIDTH*col;
-    cellObject.y = ROW_HEIGHT*row;
+    // cellObject.x = COL_WIDTH*col;
+    // cellObject.y = ROW_HEIGHT*row;
+    cellObject.setPosition(COL_WIDTH*col, ROW_HEIGHT*row);
 
-    cellObject.w = COL_WIDTH;
-    cellObject.h = ROW_HEIGHT;
-
+    // cellObject.w = COL_WIDTH;
+    // cellObject.h = ROW_HEIGHT;
+    cellObject.setSize(COL_WIDTH, ROW_HEIGHT);
     gridObjects[cell] = cellObject; // put it in the array
     //    println("x="+gridObjects[cell].x);
   }
-}
-
-
-//----------------------------------------------------------------------
-// draw the grid at a specific position
-// quite useless, but fun
-//
-void drawGridAt(int x, int y, DrawableObject[] gridObjects)
-{
-  pushMatrix();
-  translate(x, y);
-  // draw our cells
-  for (int cell=0; cell < gridObjects.length; cell++)
-  {
-    gridObjects[cell].draw();
-  }
-  popMatrix();
 }
