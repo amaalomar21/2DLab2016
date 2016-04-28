@@ -1,13 +1,13 @@
 PImage img;
 PImage[] imgs = new PImage[8];
 String[] captions = new String[]{
-  "Bare\nTrees", 
-  "Cumulus\n Clouds", 
-  "Few people\n sighted", 
-  "Yellow", 
-  "Brickwork", 
-  "London Eye", 
-  "A view from\na bridge", 
+  "Bare\nTrees",
+  "Cumulus\n Clouds",
+  "Few people\n sighted",
+  "Yellow",
+  "Brickwork",
+  "London Eye",
+  "A view from\na bridge",
   "Red"
 };
 
