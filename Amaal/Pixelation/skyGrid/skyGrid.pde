@@ -49,8 +49,8 @@ class PicDrawableObject implements IDrawableObject {
   }
 
   public void setPosition(float xx, float yy) {
-    x = xx + 15;
-    y = yy + 20;
+    x = xx + 16;
+    y = yy + 16;
   }
 
   public void setSize(float ww, float hh) {
