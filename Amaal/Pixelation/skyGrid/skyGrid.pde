@@ -110,11 +110,14 @@ void draw()
   {
     // let's say that cell 6 (row 2 col 3) is always purple
     if (cell == 2) {
-      fill(255);
+      tint(0, 0, 255, 50);
+    }
+    else if (cell == 3) {
+      tint(0, 255, 0, 50);
     }
     else
     {
-      fill(f);
+    noTint();
     }
 
     gridObjects[cell].draw();
@@ -158,13 +161,16 @@ void setupGridPositions( IDrawableObject[] gridObjects, final int columns )
 
     //the 8 refers to how many pictures you have.
     if (cell < 9) {
-      tint(0, 0, 255, 50);
       cellObject = new PicDrawableObject(images[cell]);
     }
 
     else {
       cellObject = new DrawableObject();
     }
+
+
+
+
 
 
     // set the cell's position based on row/col

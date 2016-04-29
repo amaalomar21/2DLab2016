@@ -4,7 +4,7 @@ PImage[] imgs = new PImage[6];
 
 void setup() {
   size(600, 300);
- 
+
 }
 
 void draw() {
@@ -23,7 +23,7 @@ void draw() {
   imgs[3] = loadImage("imgs3.jpg");
   imgs[4] = loadImage("imgs4.jpg");
   imgs[5] = loadImage("imgs5.jpg");
-  
+
   image(imgs[0], 0, 0, 200, 150);
   image(imgs[1], 200, 0, 200, 150);
   image(imgs[2], 400, 0, 200, 150);
