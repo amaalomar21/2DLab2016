@@ -1,12 +1,14 @@
 
 
+
 void setup(){
   size(700,700);
   background(#faf3e6);
 }
 
 void draw(){
- rectMode(CENTER);
+
+  rectMode(CENTER);
  rect( 350, 50, 400, 10);
  rect( 350, 100, 400, 10);
  rect( 350, 600, 400, 10);
@@ -55,7 +57,14 @@ text(cast[i], 525,( i * 60) + 160);
   line(175 + textWidth(actors[i]),(i*60)+160, 525 - textWidth(cast[i]), ( i * 60) + 160);
   }
  
- 
+   
+  for (int i = 0; i<7; i++) {
+  fill(0);
+  stroke(10);
+  ellipse(175 + textWidth(actors[i]),(i*60)+160, 5, 5);
+  
+  }
+
 
  }
  
