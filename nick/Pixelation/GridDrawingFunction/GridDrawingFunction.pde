@@ -8,54 +8,70 @@
 //
 
 interface IDrawableObject {
-    public void draw();
-    public void setPosition(float xx, float yy);
-    public void setSize(float ww, float hh);
+  public void draw();
+  public void setPosition(float xx, float yy);
+  public void setSize(float ww, float hh);
+  public void setColor(int cc);
 }
 
 class DrawableObject implements IDrawableObject {
 
   float x, y;
   float w=10, h=10; //arbitrary values so we see something when this is drawn
+  int rectFill = color(255);
 
   public void setPosition(float xx, float yy) {
-      x = xx;
-      y = yy;
+    x = xx;
+    y = yy;
   }
 
   public void setSize(float ww, float hh) {
-      w = ww;
-      h = hh;
+    w = ww;
+    h = hh;
   }
 
   public void draw()
   {
+    fill(rectFill);
     rectMode(CORNER);
     rect(x, y, w, h);
   }
+
+  public void setColor(int cc)
+  {
+    rectFill = cc;
+  }
 }
 
+
 class PicDrawableObject implements IDrawableObject {
-    PImage img;
-    float x, y;
+  PImage img;
+  float x, y;
+  int imgTint = color(255);  // 0xFF FF FF FF
 
-    PicDrawableObject(PImage myImage) {
-        img = myImage;
-        // println(img);
-    }
+  PicDrawableObject(PImage myImage) {
+    img = myImage;
+    // println(img);
+  }
 
-    public void draw() {
-        image(img, x, y);
-    }
+  public void draw() {
+    tint(imgTint);
+    image(img, x, y);
+  }
 
-    public void setPosition(float xx, float yy) {
-        x = xx;
-        y = yy;
-    }
+  public void setPosition(float xx, float yy) {
+    x = xx;
+    y = yy;
+  }
 
-    public void setSize(float ww, float hh) {
-        img.resize((int) ww, (int) hh);
-    }
+  public void setSize(float ww, float hh) {
+    img.resize((int) ww, (int) hh);
+  }
+
+  public void setColor(int cc)
+  {
+    imgTint = cc;
+  }
 }
 
 
@@ -64,7 +80,7 @@ class PicDrawableObject implements IDrawableObject {
 int OBJECTS_TO_DRAW = 14;
 
 // grid properties
-int COLS = 4;
+int COLS = 2;
 // NOTE: rows will be calculated based on number of cols
 
 
@@ -78,11 +94,11 @@ IDrawableObject[] gridObjects = new IDrawableObject[OBJECTS_TO_DRAW];
 PImage images[] = new PImage[8];
 void setup()
 {
-  size(512, 256);
+  size(450, 1000);
 
   for (int i = 0; i < 8; i++) {
-      String filename = "contemp" + i + ".jpg";
-      images[i] = loadImage(filename);
+    String filename = "contemp" + i + ".jpg";
+    images[i] = loadImage(filename);
   }
 
   setupGridPositions(gridObjects, COLS);
@@ -106,15 +122,6 @@ void draw()
   // draw our cells
   for (int cell=0; cell < gridObjects.length; cell++)
   {
-    // let's say that cell 6 (row 2 col 3) is always purple
-    if ( cell == 6 ) {
-      fill(255,0,255);
-    }
-    else
-    {
-      fill(f);
-    }
-
     gridObjects[cell].draw();
   }
 
@@ -144,8 +151,8 @@ void setupGridPositions( IDrawableObject[] gridObjects, final int columns )
     // get the row
     int row = cell/COLS;
 
-    //print("col=" + col);
-    //println(", row=" + row);
+    print("col=" + col);
+    println(", row=" + row);
 
     // create new cell object and put in array
     IDrawableObject cellObject;
@@ -154,10 +161,45 @@ void setupGridPositions( IDrawableObject[] gridObjects, final int columns )
     //
     // }
     if (cell < 8) {
-        cellObject = new PicDrawableObject(images[cell]);
+      cellObject = new PicDrawableObject(images[cell]);
     } else {
-        cellObject = new DrawableObject();
+      cellObject = new DrawableObject();
     }
+
+    // colour all the cells - we could also make an array containing a color pallette and randomly 
+    // or purposefully pick form that
+    // 
+    colorMode(HSB);
+
+    // 3 color - red, green, blue
+    // row # -> 0,1,2
+    int rowIndex = (row % 3);
+
+    println("mod 3:" + rowIndex);
+
+    switch(rowIndex)
+    {
+    case 0:
+      {
+        cellObject.setColor( color(0, 255, 220) );
+        break;
+      }      
+
+    case 1:
+      {
+        cellObject.setColor( color(120, 255, 255) );
+        break;
+      }
+
+    case 2:
+      {
+        cellObject.setColor( color(240, 255, 255) );
+        break;
+      }
+    }
+
+
+
     // set the cell's position based on row/col
     // cellObject.x = COL_WIDTH*col;
     // cellObject.y = ROW_HEIGHT*row;
