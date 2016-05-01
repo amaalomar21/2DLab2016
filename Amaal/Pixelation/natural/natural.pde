@@ -128,11 +128,23 @@ void draw()
 //----------------------------------------------------------------------
 // update an array of grid cells based on the number of columns provided
 //
-void setupGridPositions( IDrawableObject[] gridObjects, final int columns )
+void setupGridPositions( IDrawableObject[] gridObjects, final int columns, float paddingPercent, float scalePercent)
 {
-  int COL_WIDTH = width/columns; // setup width of columns
+  int tableWidth = round(scalePercent*width);
+  //println(tableWidth);
+  int tableHeight = round(scalePercent*height);
+  //println(tableHeight);
+  int paddingW = round(paddingPercent*tableWidth );
+  //println(paddingW);
+
+  int paddingH = round(paddingPercent*tableHeight );
+
+  int COL_WIDTH = (tableWidth-paddingW*(columns+1))/columns; // setup width of columns
+  //println(COL_WIDTH);
+
   final int NUM_ROWS = gridObjects.length/columns;
-  int ROW_HEIGHT = height/NUM_ROWS;
+  int ROW_HEIGHT = (tableHeight-paddingH*(NUM_ROWS+1))/NUM_ROWS;
+
 
   // position our cells in a 4x3 (4 col x 3 row) grid
   for (int cell=0; cell < gridObjects.length; cell++)
@@ -190,15 +202,15 @@ void setupGridPositions( IDrawableObject[] gridObjects, final int columns )
        cellObject = new PicDrawableObject(images[6]);
      }
 
-      // set the cell's position based on row/col
-      // cellObject.x = COL_WIDTH*col;
-      // cellObject.y = ROW_HEIGHT*row;
-      cellObject.setPosition(COL_WIDTH*col, ROW_HEIGHT*row);
+     // set the cell's position based on row/col
+     // cellObject.x = COL_WIDTH*col;
+     // cellObject.y = ROW_HEIGHT*row;
+     cellObject.setPosition((COL_WIDTH+paddingW)*col+paddingW /*x*/,
+                            (ROW_HEIGHT+paddingH)*row+paddingH /*y*/);
 
-      // cellObject.w = COL_WIDTH;
-      // cellObject.h = ROW_HEIGHT;
-      cellObject.setSize(COL_WIDTH, ROW_HEIGHT);
-      gridObjects[cell] = cellObject; // put it in the array
-      //    println("x="+gridObjects[cell].x);
-    }
+     // cellObject.w = COL_WIDTH;
+     // cellObject.h = ROW_HEIGHT;
+     cellObject.setSize(COL_WIDTH, ROW_HEIGHT);
+     gridObjects[cell] = cellObject; // put it in the array
+     //    println("x="+gridObjects[cell].x);    }
   }
