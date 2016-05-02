@@ -35,14 +35,14 @@ void setup()
 
     instructionText[0] = "Click on the coloured rectangle to change the tint";
     instructionText[1] = "Click on the R to reset the tint";
-    instructionText[2] = "This message will disapear as soon as you choose a tint";
+    instructionText[2] = "This message will disapear when you choose a tint";
 
     ellipseMode(RADIUS);
     // Setting the sketch to be full screen
     fullScreen();
 
     // LOADING THE ACTUAL FONT FROM SYSTEM
-    champagne = loadFont("Champagne&Limousines-48.vlw");
+    champagne = loadFont("Champagne&Limousines-Bold-48.vlw");
 
     // Loading pictures
     for (int i = 0; i < 8; i++) {
@@ -97,12 +97,10 @@ void draw()
 
     drawTitle();
     drawReset();
-
+    mouseClicked();
     if(instructions){
         drawInstructions();
     }
-
-    mouseClicked();
 
 }
 
@@ -115,10 +113,10 @@ void draw()
 void setupGridPositions( IDrawableObject[] gridObjects, final int columns, float paddingPercent, float scalePercent)
 {
     int tableWidth = round(scalePercent*width);
+    int paddingW = round(paddingPercent*tableWidth );
     //println(tableWidth);
     int tableHeight = round(scalePercent*height);
     //println(tableHeight);
-    int paddingW = round(paddingPercent*tableWidth );
     //println(paddingW);
 
     int paddingH = round(paddingPercent*tableHeight );
@@ -201,7 +199,7 @@ void drawTitle(){
         yUnderline = yText + 3,
         yText2 = yUnderline + fontSize + 3; //int( (yUnderline + height * paddingPercent) + fontSize);
 
-    rect(x ,yUnderline, width / 4.75, 1);
+    rect(x ,yUnderline, width / 4.75, 2);
 
     textFont(champagne, fontSize);
     textAlign(LEFT, BOTTOM);
@@ -218,25 +216,36 @@ void drawReset(){
     resetX = width - int( paddingPercent * width + resetRad );
     resetY = int(paddingPercent * height) + resetRad;
     resetPad = 2;
-    // int rad = 10,
-    //     x
-    //
-        fill(255);
-        ellipse(resetX, resetY, resetRad + resetPad , resetRad + resetPad );
-        fill(0);
-        ellipse(resetX, resetY, resetRad, resetRad);
-        fill(255);
-        textAlign(CENTER, CENTER);
-        text("R", resetX, resetY);
 
-
+    fill(255);
+    ellipse(resetX, resetY, resetRad + resetPad , resetRad + resetPad );
+    fill(0);
+    ellipse(resetX, resetY, resetRad, resetRad);
+    fill(255);
+    textAlign(CENTER, CENTER);
+    text("R", resetX, resetY);
 }
 
 // NOTE: Must apply reset functionality
 
 void drawInstructions(){
-    int fontSize = 16;
+    int tableWidth = round(1*width),
+        paddingW = round(paddingPercent*tableWidth ),
+        fontSize = 22,
+        colWidth = int( (tableWidth-paddingW*(COLS+1))/COLS ),
+        instructionsX = int( width - colWidth * 2 - (paddingPercent * width) * 2 ),
+        startingY = int(height / 3);
+
+        println(colWidth);
+
     textFont(champagne, fontSize);
+    textAlign(LEFT, BOTTOM);
+    // text("TEST", instructionsX, startingY);
+
+    for(int index = instructionText.length - 1, y = startingY; index >= 0; index--, y = y - fontSize - 2 ){
+        text(instructionText[index], instructionsX, y);
+    }
+
 }
 
 void applyTint(){
