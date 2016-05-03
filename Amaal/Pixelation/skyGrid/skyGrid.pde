@@ -109,12 +109,39 @@ void draw()
   for (int cell=0; cell < gridObjects.length; cell++)
   {
     // let's say that cell 6 (row 2 col 3) is always purple
-    if (cell == 2) {
-      tint(0, 0, 255, 50);
+    if (cell == 0) {
+      tint(0, 0, 255, 100);
     }
     else if (cell == 3) {
-      tint(0, 255, 0, 50);
+      tint(0, 0, 255, 100);
     }
+    else if (cell == 6) {
+      tint(0, 0, 255, 100);
+    }
+
+    else if (cell == 2) {
+      tint(0, 255, 0, 100);
+    }
+    else if (cell == 5) {
+      tint(0, 255, 0, 100);
+    }
+
+    else if (cell == 8) {
+      tint(0, 255, 0, 100);
+    }
+
+    else if (cell == 1) {
+      tint(255, 0, 0, 100);
+    }
+    else if (cell == 4) {
+      tint(255, 0, 0, 100);
+    }
+
+    else if (cell == 7) {
+      tint(255, 0, 0, 100);
+    }
+
+
     else
     {
     noTint();

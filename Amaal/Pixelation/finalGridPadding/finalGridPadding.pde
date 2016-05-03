@@ -57,6 +57,7 @@ class PicDrawableObject implements IDrawableObject {
   public void draw() {
     tint(imgTint);
     image(img, x, y);
+  
   }
 
   public void setPosition(float xx, float yy) {
