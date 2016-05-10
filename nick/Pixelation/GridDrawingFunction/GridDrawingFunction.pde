@@ -101,7 +101,7 @@ color f = 0;
 void draw()
 {
   // if (frameCount % 60 == 0) f = color(random(255), random(255), random(255));
-  f = color(0x80);
+  f = color(0xA0);
 
   // draw our cells
   for (int cell=0; cell < gridObjects.length; cell++)
@@ -149,12 +149,8 @@ void setupGridPositions( IDrawableObject[] gridObjects, final int columns )
 
     // create new cell object and put in array
     IDrawableObject cellObject;
-    // if (cell % 2 == 0) {
-    //     cellObject = new PicDrawableObject(images[cell / 2]);
-    //
-    // }
-    if (cell < 8) {
-        cellObject = new PicDrawableObject(images[cell]);
+    if (cell % 2 == 0) {
+        cellObject = new PicDrawableObject(images[cell / 2]);
     } else {
         cellObject = new DrawableObject();
     }
