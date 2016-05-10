@@ -1,0 +1,2 @@
+class PlainColourCell implements ICell {
+}

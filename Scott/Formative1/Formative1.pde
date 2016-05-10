@@ -11,14 +11,12 @@ interface IDrawableObject {
   public void draw();
   public void setPosition(float xx, float yy);
   public void setSize(float ww, float hh);
-  public void setColor(int cc);
 }
 
 class DrawableObject implements IDrawableObject {
 
   float x, y;
   float w=10, h=10; //arbitrary values so we see something when this is drawn
-  int rectFill = color(255);
 
   public void setPosition(float xx, float yy) {
     x = xx;
@@ -32,22 +30,14 @@ class DrawableObject implements IDrawableObject {
 
   public void draw()
   {
-    fill(rectFill);
     rectMode(CORNER);
     rect(x, y, w, h);
   }
-
-  public void setColor(int cc)
-  {
-    rectFill = cc;
-  }
 }
-
 
 class PicDrawableObject implements IDrawableObject {
   PImage img;
   float x, y;
-  int imgTint = color(255);  // 0xFF FF FF FF
 
   PicDrawableObject(PImage myImage) {
     img = myImage;
@@ -55,7 +45,6 @@ class PicDrawableObject implements IDrawableObject {
   }
 
   public void draw() {
-    tint(imgTint);
     image(img, x, y);
   }
 
@@ -67,20 +56,15 @@ class PicDrawableObject implements IDrawableObject {
   public void setSize(float ww, float hh) {
     img.resize((int) ww, (int) hh);
   }
-
-  public void setColor(int cc)
-  {
-    imgTint = cc;
-  }
 }
 
 
 
 // number of cells/objects to store in our array and draw
-int OBJECTS_TO_DRAW = 14;
+int OBJECTS_TO_DRAW = 25;
 
 // grid properties
-int COLS = 2;
+int COLS = 5;
 // NOTE: rows will be calculated based on number of cols
 
 
@@ -91,13 +75,13 @@ IDrawableObject[] gridObjects = new IDrawableObject[OBJECTS_TO_DRAW];
 // SETUP ----------------------------------------------------------
 //
 
-PImage images[] = new PImage[8];
+PImage images[] = new PImage[9];
 void setup()
 {
-  size(450, 1000);
+  size(600, 600);
 
-  for (int i = 0; i < 8; i++) {
-    String filename = "contemp" + i + ".jpg";
+  for (int i = 0; i < 9; i++) {
+    String filename =  i + ".jpg";
     images[i] = loadImage(filename);
   }
 
@@ -117,11 +101,49 @@ color f = 0;
 void draw()
 {
   // if (frameCount % 60 == 0) f = color(random(255), random(255), random(255));
-  f = color(0xA0);
+  f = color(0x80);
 
   // draw our cells
   for (int cell=0; cell < gridObjects.length; cell++)
   {
+    // let's say that cell 6 (row 2 col 3) is always purple
+    if ( cell == 0 ) {
+      fill(200);
+    } else if ( cell == 1) {
+      fill(190);
+    } else if ( cell == 2) {
+      fill(180);
+    } else if ( cell == 3) {
+      fill(160);
+    } else if ( cell == 4) {
+      fill(140);
+    } else if ( cell == 5) {
+      fill(190);
+    } else if ( cell == 9) {
+      fill(120);
+    } else if ( cell == 14) {
+      fill(100);
+    } else if ( cell == 19) {
+      fill(90);
+    } else if ( cell == 10 ) {
+      fill(180);
+    } else if ( cell == 15) {
+      fill(160);
+    } else if ( cell == 20) {
+      fill(140);
+    } else if ( cell == 21) {
+      fill(120);
+    } else if ( cell == 22) {
+      fill(100);
+    } else if ( cell == 23) {
+      fill(90);
+    } else if ( cell == 24) {
+      fill(80);
+    } else
+    {
+      fill(f);
+    }
+
     gridObjects[cell].draw();
   }
 
@@ -151,8 +173,8 @@ void setupGridPositions( IDrawableObject[] gridObjects, final int columns )
     // get the row
     int row = cell/COLS;
 
-    print("col=" + col);
-    println(", row=" + row);
+    //print("col=" + col);
+    //println(", row=" + row);
 
     // create new cell object and put in array
     IDrawableObject cellObject;
@@ -160,46 +182,27 @@ void setupGridPositions( IDrawableObject[] gridObjects, final int columns )
     //     cellObject = new PicDrawableObject(images[cell / 2]);
     //
     // }
-    if (cell < 8) {
-      cellObject = new PicDrawableObject(images[cell]);
+    if (cell == 6) {
+      cellObject = new PicDrawableObject(images[0]);
+    } else if (cell == 7) {
+      cellObject = new PicDrawableObject(images[1]);
+    } else if (cell == 8) {
+      cellObject = new PicDrawableObject(images[2]);
+    } else if (cell == 11) {
+      cellObject = new PicDrawableObject(images[3]);
+    } else if (cell == 12) {
+      cellObject = new PicDrawableObject(images[5]);
+    } else if (cell == 13) {
+      cellObject = new PicDrawableObject(images[4]);
+    } else if (cell == 16) {
+      cellObject = new PicDrawableObject(images[6]);
+    } else if (cell == 17) {
+      cellObject = new PicDrawableObject(images[7]);
+    } else if (cell == 18) {
+      cellObject = new PicDrawableObject(images[8]);
     } else {
       cellObject = new DrawableObject();
     }
-
-    // colour all the cells - we could also make an array containing a color pallette and randomly
-    // or purposefully pick form that
-    //
-    colorMode(HSB);
-
-    // 3 color - red, green, blue
-    // row # -> 0,1,2
-    int rowIndex = (row % 3);
-
-    println("mod 3:" + rowIndex);
-
-    switch(rowIndex)
-    {
-    case 0:
-      {
-        cellObject.setColor( color(0, 255, 220) );
-        break;
-      }
-
-    case 1:
-      {
-        cellObject.setColor( color(120, 255, 255) );
-        break;
-      }
-
-    case 2:
-      {
-        cellObject.setColor( color(240, 255, 255) );
-        break;
-      }
-    }
-
-
-
     // set the cell's position based on row/col
     // cellObject.x = COL_WIDTH*col;
     // cellObject.y = ROW_HEIGHT*row;

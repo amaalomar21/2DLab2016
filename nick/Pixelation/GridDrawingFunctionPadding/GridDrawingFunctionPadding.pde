@@ -80,7 +80,7 @@ class PicDrawableObject implements IDrawableObject {
 int OBJECTS_TO_DRAW = 14;
 
 // grid properties
-int COLS = 2;
+int COLS = 4;
 // NOTE: rows will be calculated based on number of cols
 
 
@@ -92,16 +92,17 @@ IDrawableObject[] gridObjects = new IDrawableObject[OBJECTS_TO_DRAW];
 //
 
 PImage images[] = new PImage[8];
+
 void setup()
 {
-  size(450, 1000);
+  size(960, 720);
 
   for (int i = 0; i < 8; i++) {
     String filename = "contemp" + i + ".jpg";
     images[i] = loadImage(filename);
   }
 
-  setupGridPositions(gridObjects, COLS);
+  setupGridPositions(gridObjects, COLS, 0.025/*padding*/, 1/*grid scale*/);
 
   noStroke();
 }
@@ -116,29 +117,46 @@ color f = 0;
 
 void draw()
 {
+  background(0);
+  
   // if (frameCount % 60 == 0) f = color(random(255), random(255), random(255));
-  f = color(0xA0);
+  f = color(0x80);
+
+  //translate(mouseX,mouseY);
 
   // draw our cells
   for (int cell=0; cell < gridObjects.length; cell++)
   {
     gridObjects[cell].draw();
   }
-
-  //fill(f);
-  //drawGridAt(mouseX, mouseY, gridObjects);
+  
+  
 }
 
 
 //----------------------------------------------------------------------
 // update an array of grid cells based on the number of columns provided
-//
-void setupGridPositions( IDrawableObject[] gridObjects, final int columns )
+// 
+// Use percentage to scale grid width and height (0-100% or 0..1)
+// 
+void setupGridPositions( IDrawableObject[] gridObjects, final int columns, float paddingPercent, float scalePercent)
 {
-  int COL_WIDTH = width/columns; // setup width of columns
+  int tableWidth = round(scalePercent*width);
+  //println(tableWidth);
+  int tableHeight = round(scalePercent*height);
+  //println(tableHeight);
+  int paddingW = round(paddingPercent*tableWidth );
+  //println(paddingW);
+  
+  int paddingH = round(paddingPercent*tableHeight );
+  
+  int COL_WIDTH = (tableWidth-paddingW*(columns+1))/columns; // setup width of columns
+  //println(COL_WIDTH);
+  
   final int NUM_ROWS = gridObjects.length/columns;
-  int ROW_HEIGHT = height/NUM_ROWS;
-
+  int ROW_HEIGHT = (tableHeight-paddingH*(NUM_ROWS+1))/NUM_ROWS;
+  
+ 
   // position our cells in a 4x3 (4 col x 3 row) grid
   for (int cell=0; cell < gridObjects.length; cell++)
   {
@@ -166,9 +184,9 @@ void setupGridPositions( IDrawableObject[] gridObjects, final int columns )
       cellObject = new DrawableObject();
     }
 
-    // colour all the cells - we could also make an array containing a color pallette and randomly
+    // colour all the cells - we could also make an array containing a color pallette and randomly 
     // or purposefully pick form that
-    //
+    // 
     colorMode(HSB);
 
     // 3 color - red, green, blue
@@ -183,7 +201,7 @@ void setupGridPositions( IDrawableObject[] gridObjects, final int columns )
       {
         cellObject.setColor( color(0, 255, 220) );
         break;
-      }
+      }      
 
     case 1:
       {
@@ -199,11 +217,11 @@ void setupGridPositions( IDrawableObject[] gridObjects, final int columns )
     }
 
 
-
     // set the cell's position based on row/col
     // cellObject.x = COL_WIDTH*col;
     // cellObject.y = ROW_HEIGHT*row;
-    cellObject.setPosition(COL_WIDTH*col, ROW_HEIGHT*row);
+    cellObject.setPosition((COL_WIDTH+paddingW)*col+paddingW /*x*/, 
+                           (ROW_HEIGHT+paddingH)*row+paddingH /*y*/);
 
     // cellObject.w = COL_WIDTH;
     // cellObject.h = ROW_HEIGHT;
