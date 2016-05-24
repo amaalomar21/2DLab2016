@@ -1,3 +1,4 @@
+
 var margin = {top: 20, right: 20, bottom: 30, left: 40},
     width = $("#graph").width() - margin.left - margin.right,
     height = $("#graph").height() - margin.top - margin.bottom;
@@ -75,7 +76,7 @@ $(window).resize( function() {
         
         // Run code here, resizing has "stopped
 
-        // blow it all away
+        // blow it all away so we don't have mutliple graphs
         d3.selectAll("#graph svg").remove();
 
         var margin = {top: 20, right: 20, bottom: 30, left: 40},

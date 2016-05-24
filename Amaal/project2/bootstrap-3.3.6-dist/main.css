@@ -14,15 +14,16 @@ img.thumbnail {
 
 
 p.text {
-    margin-top: 200px;
     text-align: center;
     color: black;
     font-family:'Volkhov', serif;
     font-size: 50px;
     font-style: italic;
+    margin-top: 150px; 
 
 }
 
+/*
 p.quote {
     text-align: center;
     color: black;
@@ -33,3 +34,4 @@ p.quote {
 
 }
 
+*/
