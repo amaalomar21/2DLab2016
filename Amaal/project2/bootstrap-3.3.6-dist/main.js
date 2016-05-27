@@ -26,62 +26,28 @@ function jsonFunc(data, success) {
     }
 }
 
-//
-// added error handling
-//
-//$.getJSON("data.json", jsonFunc)
-//  .done(function() {
-//    console.log( "second success" );
-//  }).fail(function (jqXHR, textStatus, error) {
-//    console.log("Post error: " + error);
-//    alert("Failed: " + error);
-//  }).always(function() {
-//    // runs after this is complete, always, no matter what
-//    console.log( "complete" );
-//  });
 
 
 
 var myData = [
-//    {"name": "waterloo", 
-//     "position": [51.5034, -0.1111],
-//     "img": 'images/escalator.JPG'
-//    },
-//    
-//    {"name": "northGreenwich", 
-//     "position": [51.5007, 0.0037],
-//     "img": 'images/northGreenwich.JPG'
-//    },
-     
-//    {"name": "uniBuilding", 
-//     "position": [51.5021, 0.0058],
-//     "img": 'images/uniBuilding.JPG'
-//    },
-    
-    {"name": "bikes", 
-     "position": [51.5329, -0.1353],
-     "img": 'images/bikes.JPG'
+
+    {"name": "CEntrance", 
+     "position": [51.5256, -0.1224],
+     "img": 'images/coramsEntrance.JPG'
     },
     
-//    {"name": "church", 
-//     "position": [51.5344, -0.1362],
-//     "img": 'images/church.JPG'
-//    
-//    },
-//    
-//    {"name": "college", 
-//     "position": [51.5348, -0.1358],
-//     "img" : 'images/college.JPG'
-//    
-//    },
     
-    {"name": "lavender", 
-     "position": [51.5363, -0.1389],
-     "img": 'images/lavender.JPG'
+    {"name": "gravecloseup", 
+     "position": [51.5259, -0.1216],
+     "img": 'images/gravecloseup.JPG'
+    
+    },
+    
+    {"name": "greenOne", 
+     "position": [51.5265, -0.1204],
+     "img": 'images/greenOne.JPG'
     
     }
-    
-    
     
 ]
 

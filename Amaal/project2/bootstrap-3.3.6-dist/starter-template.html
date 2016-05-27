@@ -9,9 +9,12 @@
     <link rel="icon" href="../../favicon.ico">
       
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="scatter.css" />
+    <link rel="stylesheet" href="graph.css" />
 
-    <title>Starter Template for Bootstrap</title>
+    <title>Nature in London</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -42,7 +45,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+<!--          <a class="navbar-brand" href="#">Project name</a>-->
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -57,50 +60,299 @@
     <div class="container">
 
       <div class="starter-template">
-        <h1>Nature in London</h1>
-        <p class="lead">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
-      </div>
-        
-<!-- Map-->
+
+        <div class = "row">
+            <div class = "titles" class ="col-md-8 col-md-offset-2">
+            <p>THE ROUTE</p>
+            </div>
+        </div>
+          
+          <!-- Map-->
         <div class ="row">
-            <div id="mapid" class ="col-xs-8"></div>
+            <div id="mapid" class ="col-md-8 col-md-offset-2"></div>
         </div>
 
         
         <div class = "row">
-            <div class = "col-md-6">
-                <img class ="thumbnail" src = "images/grave.JPG"> 
+            <div class ="col-md-6 col-md-offset-3">
+            <p class = "aimText">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
+            </div>
+        </div>
+          
+        <div class = "row">
+            <div class = "col-md-2 col-md-offset-5">
+                <img class ="pin" src = "images/locationPin.jpg"> 
+            </div>
+          </div>    
+    
+          
+        <div class = "row">
+            <div class = "titles" class ="col-md-8 col-md-offset-2">
+            <p>ST GEORGE'S GARDEN</p>
+            </div>
+        </div>
+        
+          
+        <div class = "row">
+            <div class ="col-md-8 col-md-offset-2">
+            <p class = "subheading">16°C Partly Cloudy</p>
+            </div>
+        </div>
+          
+<!--    bird Icons    -->
+        <div class = "row">
+            <div class = "col-md-1 col-md-offset-2">
+                <img class ="icons" src = "images/birdIcon.jpg"> 
             </div>
             
-         <div class = "row">
-            <div class = "col-md-6">
-                <p class = "text">"This is a nice place<br>to die and be buried"- Hibo Misky</p>
-                </div>
+            <div class = "col-md-1">
+                <img class ="icons" src = "images/birdIcon.jpg"> 
             </div>
-
+             <div class = "col-md-1">
+                <img class ="icons" src = "images/birdIcon.jpg"> 
+            </div>
+            <div class = "col-md-1">
+                <img class ="icons" src = "images/birdIcon.jpg"> 
+            </div>
+            
+            <div class = "col-md-1">
+                <img class ="icons" src = "images/birdIcon.jpg"> 
+            </div>
+             <div class = "col-md-1">
+                <img class ="icons" src = "images/birdIcon.jpg"> 
+            </div>
+             <div class = "col-md-1">
+                <img class ="icons" src = "images/birdIcon.jpg"> 
+            </div>
+            
         </div>
-
         
-
-        
-<!--
+        <!-- Dog icons-->  
         <div class = "row">
-            <div class = "col-md-6">
-             <img class ="thumbnail" src = "images/plants.JPG">     
-            </div> 
+            <div class = "col-md-1 col-md-offset-2">
+                <img class ="icons" src = "images/dogicon.jpg"> 
+            </div>
+            
+            <div class = "col-md-1">
+                <img class ="icons" src = "images/dogicon.jpg"> 
+            </div>
+             <div class = "col-md-1">
+                <img class ="icons" src = "images/dogicon.jpg"> 
+            </div>
+            <div class = "col-md-1">
+                <img class ="icons" src = "images/dogicon.jpg"> 
+            </div>
+            
+            <div class = "col-md-1">
+                <img class ="icons" src = "images/dogicon.jpg"> 
+            </div>
+             <div class = "col-md-1">
+                <img class ="icons" src = "images/dogicon.jpg"> 
+            </div>
         </div>    
-            
--->
-<!--
-            <div class = "row">
-                <div class = "col-md-6">
-                    <p class = "text"> Hello</p>
-                </div>
+          
+        <div class = "row">
+            <div class = "col-md-1 col-md-offset-2">
+                <img class ="icons" src = "images/squirrel.jpg"> 
             </div>
             
-            
+            <div class = "col-md-1">
+                <img class ="icons" src = "images/squirrel.jpg"> 
+            </div>
+        </div>
+    
+                    
+<!--
+          <div class="col-md-8 col-md-offset-2">
+                <div class="hovereffect">
+                        <img class="graveYard" src="images/graveFiltered.JPG">
+                <div class="overlay">
+                     <h2>"This is a nice place to be buried"</h2>
+                <p class="quote">- Hibo Misky</p>
+        </div>
+    </div>
+</div>
+          
 -->
+
+          <div class="col-md-8 col-md-offset-2 extraMargin">
+        <div class="hovereffect">
+            <img class="graveYard" src="images/graveFiltered.JPG">
+                <div class="overlay">
+                    <h2 class = "gravequote">"This is a nice place to be buried"</h2>
+                    <p class = "quote">- Hibo Misky</p>
+                </div>
+        </div>
+    </div>
+          
+          
+        <div class = "row">
+            <div class = "col-md-8 col-md-offset-2">
+                <img class = "imgQuotes" src = "images/quoteOpen.png">
+            </div>
+        </div> 
+          
+        <div class = "row">
+            <div class = "col-md-8 col-md-offset-2">
+                <p class = "titleQuote">I THINK WE'RE STANDING ON SOMEONE'S GRAVE</p>
+            </div>
+        </div> 
+
+                    
+        <div class = "row">
+            <div class = "col-md-8 col-md-offset-2">
+                <img class = "imgQuotes" src = "images/quoteClose.png">
+            </div>
+        </div> 
+
+          
+        <!--hover images. Source: http://miketricking.github.io/dist/ -->
+
+    <div class="col-md-6">
+        <div class="hovereffect">
+            <img class="img-responsive" src="images/multiPlants.JPG">
+                <div class="overlay">
+                    <h2>"There are way too many flies over here"</h2>
+                    <p class = "quote">- Amaal Mohamed</p>
+                </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="hovereffect">
+            <img class="img-responsive" src="images/evergreen.JPG">
+                <div class="overlay">
+                    <h2 class ="hover text">"I need these plants in my room" </h2>
+                    <p class = "quote">- Hibo Misky</p>
+                </div>
+        </div>
+    </div>
+          
+
+        <!--end of images grid-->
+          
+        <div class = "row">
+            <div class = "col-md-2 col-md-offset-5">
+                <img class ="pin two" src = "images/locationPin.jpg"> 
+            </div>
+          </div>    
+          
+        <div class = "row">
+            <div class = "titles" class ="col-md-8 col-md-offset-2">
+            <p>CORAM'S FIELDS</p>
+            </div>
+        </div>
+        
+          
+        <div class = "row">
+            <div class ="col-md-8 col-md-offset-2">
+            <p class = "subheading">16°C Partly Cloudy</p>
+            </div>
+        </div>
+          
+        <div class ="row">
+            <div class = "col-md-1 col-md-offset-2">
+                <img class ="icons" src = "images/birdIcon.jpg"> 
+            </div>
+          
+            <div class = "col-md-1">
+                 <img class ="icons" src = "images/birdIcon.jpg"> 
+            </div>
             
+            <div class = "col-md-1">
+                <img class ="icons" src = "images/birdIcon.jpg"> 
+            </div>
+            
+            <div class = "col-md-1">
+                <img class ="icons" src = "images/birdIcon.jpg"> 
+            </div>
+            
+            <div class = "col-md-1">
+                <img class ="icons" src = "images/birdIcon.jpg"> 
+            </div>
+            
+             <div class = "col-md-1">
+                <img class ="icons" src = "images/birdIcon.jpg"> 
+            </div>
+            
+        </div>
+        
+        <div class = "row">
+            <div class = "col-md-1 col-md-offset-2">
+                <img class ="icons" src = "images/rabbiticon.JPG"> 
+            </div>
+            <div class = "col-md-1">
+                <img class ="icons" src = "images/rabbiticon.JPG"> 
+            </div>
+            <div class = "col-md-1">
+                <img class ="icons" src = "images/rabbiticon.JPG"> 
+            </div>
+            
+            <div class = "col-md-1">
+                <img class ="icons" src = "images/rabbiticon.jpg"> 
+            </div>
+        </div>  
+          
+          
+          <div class = "row">
+            <div class = "col-md-1 col-md-offset-2">
+                <img class ="icons" src = "images/goat%202.jpg"> 
+            </div>
+            <div class = "col-md-1">
+                <img class ="icons" src = "images/goat%202.jpg"> 
+            </div>
+            <div class = "col-md-1">
+                <img class ="icons" src = "images/goat%202.jpg"> 
+            </div>
+        </div>   
+          
+              <div class="col-md-6 extraMargin">
+        <div class="hovereffect">
+            <img class="img-responsive" src="images/goat.jpg">
+                <div class="overlay">
+                    <h2>"If only we could pet them"</h2>
+                    <p class = "quote">- Hibo Misky</p>
+                </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 extraMargin">
+        <div class="hovereffect">
+            <img class="img-responsive" src="images/rabbit.JPG">
+                <div class="overlay">
+                    <h2 class ="hover text"> "These goats live so close to my house!"</h2>
+                    <p class = "quote">- Amaal Mohamed</p>
+                </div>
+        </div>
+    </div>
+          
+          
+        <div class ="row">
+            <div class = "col-md-6">
+                <div id="pieChart"></div>     
+            </div>
+        <p class = "pieQuote col-md-6"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>    
+        </div>  
+
+<!--
+                     
+    <div class = "row">
+        <div class = "col-md-12" id = "graph">   
+        </div>
+    </div>    
+-->
+          
+<!--
+    <div class = "row">
+        <div class = "col-md-12" id = "scatterGraph">
+        </div>
+    </div>    
+        
+-->
+
+   
+ 
+    </div>
     </div> <!--/.container -->
 
 
@@ -112,6 +364,14 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../assets/js/ie10-viewport-bug-workaround.js"></script>
        <script src="main.js"></script>
+      <script src = "http://d3js.org/d3.v3.min.js"></script>
+      <script src="scatter.js"></script>
+     <script src="graph.js"></script>
+      <!--Js pie chart code-->
+
+    <script src="d3pie.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.4/d3.min.js"></script>
+    <script src="piechart.js"></script>
       
   </body>
 </html>
