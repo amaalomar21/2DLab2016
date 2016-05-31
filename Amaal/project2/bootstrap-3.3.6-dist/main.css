@@ -3,6 +3,22 @@
     height: 350px;
 
 }
+/* overrode default from leaflet.css*/
+.leaflet-popup-content-wrapper {
+    background: #222829;
+}
+
+
+.leaflet-popup-content {
+/*	margin: 20px 25px;*/
+    margin: 0px;
+	line-height: 1.4;
+	}
+
+.leaflet-popup-content p {
+	margin: 18px 0;
+	}
+
 
 div.titles {
     font-family: 'Montserrat', sans-serif;
@@ -17,6 +33,7 @@ p.subheading {
     font-size: 25px;
     color: #74777b;
 }
+
 
 
 p.aimText {
@@ -45,7 +62,6 @@ img.thumbnail {
     border: 0px;
     margin-top: 150px;
 
-   
 }
 
 .quote {
@@ -57,6 +73,15 @@ img.thumbnail {
     
 }
 
+p.text {
+    margin-top: 200px;
+    text-align: center;
+    color: black;
+    font-family:'Volkhov', serif;
+    font-size: 50px;
+    font-style: italic;
+}
+
 .gravequote {
     font-family: 'Montserrat', sans-serif;
     font-size: 80px;
@@ -64,10 +89,14 @@ img.thumbnail {
     color: #cfe2ff;
 }
 
+
 .titleQuote {
     font-family: 'Montserrat', sans-serif;
     font-size: 60px;
     font-style: bold;
+}
+
+p.quote {
     text-align: center;
     padding: 0px;
 }
@@ -149,6 +178,7 @@ img.graveYard
   text-shadow: 3px 3px black;
 }
 
+
 .hovereffect .overlay:before {
   position: absolute;
   top: 20px;
@@ -197,11 +227,12 @@ img.graveYard
 
 .pieQuote {
     font-family: 'Montserrat', sans-serif;
-    font-size: 30px;
+    font-size: 25px;
     text-align: left;
     color: black;
     border-left: 1px solid black;
-    margin-top: 120px;
+    margin-top: 140px;
+    padding-left: 20px;
 
 }
 
@@ -209,3 +240,4 @@ img.graveYard
     padding-top: 100px;
     padding-bottom: 40px;
 }
+

@@ -1,6 +1,6 @@
 console.log(L);
 
-var mymap = L.map('mapid').setView([61.505, -0.09], 8);
+var mymap = L.map('mapid').setView([51.5263651, -0.1277977], 16);
 
 console.log(mymap);
 
@@ -22,7 +22,7 @@ function jsonFunc(data, success) {
         console.log(data[i].position);
         var pos = data[i].position;
         L.marker(pos).addTo(mymap).bindPopup(
-            '<img src = "' + data[i].img + '"width = "200px" />');
+            '<img class="popup" src="' + data[i].img + '"width = "200px" />');
     }
 }
 
@@ -31,6 +31,7 @@ function jsonFunc(data, success) {
 
 var myData = [
 
+    
     {"name": "CEntrance", 
      "position": [51.5256, -0.1224],
      "img": 'images/coramsEntrance.JPG'
@@ -46,6 +47,36 @@ var myData = [
     {"name": "greenOne", 
      "position": [51.5265, -0.1204],
      "img": 'images/greenOne.JPG'
+    
+    },
+    
+    {"name": "pictureFrame", 
+     "position": [51.5258, -0.1338],
+     "img": 'images/pictureFrames.JPG'
+    
+    },
+    
+    {"name": "cementTower", 
+     "position": [51.5264, -0.1226],
+     "img": 'images/cementTower.JPG'
+    
+    },
+    
+     {"name": "spiralStairs", 
+     "position": [51.5263, -0.1338],
+     "img": 'images/spiralStairs.JPG'
+    
+    },
+    
+    {"name": "symmetery", 
+     "position": [51.5266, -0.1239],
+     "img": 'images/symmetry.JPG'
+    
+    },
+    
+    {"name": "graveTwo", 
+     "position": [51.526, -0.1207],
+     "img": 'images/gravePersonTree.JPG'
     
     }
     

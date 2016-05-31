@@ -1,5 +1,5 @@
-function doAllTheGraph() {
-var pie = new d3pie("pieChart", {
+function doAllGraph() {
+var pie = new d3pie("pieChartTwo", {
 	"header": {
 		"title": {
 			"fontSize": 24,
@@ -27,34 +27,19 @@ var pie = new d3pie("pieChart", {
 		"sortOrder": "value-desc",
 		"content": [
 			{
-				"label": "People",
-				"value": 35,
-				"color": "#f5c2f1"
+				"label": "Videos",
+				"value": 14,
+				"color": "#f6e6e6"
 			},
 			{
-				"label": "Birds",
-				"value": 13,
-				"color": "#f5c2c2"
+				"label": "Selfies",
+				"value": 10,
+				"color": "#f0cbbd"
 			},
 			{
-				"label": "Dogs",
-				"value": 6,
-				"color": "#f5c2d4"
-			},
-			{
-				"label": "Squirrels",
-				"value": 2,
-				"color": "#f5c2cb"
-			},
-			{
-				"label": "Goats",
-				"value": 3,
-				"color": "#f8d7ef"
-			},
-			{
-				"label": "Rabbits",
-				"value": 4,
-				"color": "#f5c2de"
+				"label": "Animals",
+				"value": 23,
+				"color": "#e6e6e6"
 			}
 		]
 	},
@@ -98,9 +83,11 @@ var pie = new d3pie("pieChart", {
 		}
 	}
 });
+    
 }
 
-doAllTheGraph();
+
+doAllGraph();
 
 
 // two ways to do resizing - resize in place or change it all.
@@ -115,8 +102,8 @@ $(window).resize( function() {
     resizeTimer = setTimeout(function() {
         // Run code here, resizing has "stopped
         // blow it all away
-        d3.selectAll("#pieChart svg").remove();
-        doAllTheGraph();
+        d3.selectAll("#pieChartTwo svg").remove();
+        doAllGraph();
   }, 250); // end timeout func
 });
 
